@@ -9,7 +9,6 @@ sudo apt install apache2
 sudo systemctl status apache2
 
 hostname -I
-
 ```
 ## Manajemen Proses Apache
 ```
@@ -19,7 +18,6 @@ sudo systemctl restart apache2
 sudo systemctl reload apache2
 sudo systemctl disable apache2
 sudo systemctl enable apache2
-
 ```
 ## Setup Virtual Hosts  
 file project apache2 ada di direktori `/var/www/html`
@@ -28,7 +26,6 @@ sudo mkdir -p /var/www/example.lokal/html
 sudo chown -R $USER:$USER /var/www/example.lokal/html
 sudo chmod -R 755 /var/www/example.lokal
 nano /var/www/example.lokal/html/index.html
-
 ```
 isi file `index.html`
 ```
@@ -57,12 +54,10 @@ Coba buat file konfigurasi baru `/etc/apache2/sites-available/example.lokal.conf
 ## Mengaktifkan file konfigurasi
 ```
 sudo a2ensite example.lokal.conf
-
 ```
 ## Menonaktifkan file konfigurasi default `000-default.conf`
 ```
 sudo a2dissite 000-default.conf
-
 ```
 ## Cek file konfigurasi
 ```
