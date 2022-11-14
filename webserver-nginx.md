@@ -3,14 +3,12 @@
 ```
 sudo apt update
 sudo apt install nginx
-
 ```
 ## Periksa Status Server
 ```
 systemctl status nginx
 
 hostname -I
-
 ```
 ## Manajemen proses Nginx
 ```
@@ -20,14 +18,13 @@ sudo systemctl restart nginx
 sudo systemctl reload nginx
 sudo systemctl disable nginx
 sudo systemctl enable nginx
-
 ```
 ## Setting Server Blocks
 ```
-sudo mkdir -p /var/www/example.com
-sudo chown -R $USER:$USER /var/www/example.com
-sudo chmod -R 755 /var/www/example.com
-nano /var/www/example.com/index.html
+sudo mkdir -p /var/www/nginx.local
+sudo chown -R $USER:$USER /var/www/nginx.local
+sudo chmod -R 755 /var/www/nginx.local
+nano /var/www/nginx.local/index.html
 ```
 isi file `index.html`
 ```
@@ -43,7 +40,7 @@ isi file `index.html`
 ## Mengatur file konfigurasi  
 File konfigurasi `nginx` default berada di `/etc/nginx/sites-available/`
 ```
-sudo nano /etc/nginx/sites-available/example.com
+sudo nano /etc/nginx/sites-available/nginx.local
 ```
 lalu isi file konfigurasi nginx sebagai berikut:
 ```
@@ -51,10 +48,10 @@ server {
         listen 80;
         listen [::]:80;
 
-        root /var/www/example.com;
+        root /var/www/nginx.local;
         index index.html index.htm index.nginx-debian.html;
 
-        server_name example.com www.example.com;
+        server_name nginx.local www.nginx.local;
 
         location / {
                 try_files $uri $uri/ =404;
@@ -63,7 +60,7 @@ server {
 ```
 ## Mengaktifkan file konfigurasi
 ```
-sudo ln -s /etc/nginx/sites-available/example.com /etc/nginx/sites-enabled/
+sudo ln -s /etc/nginx/sites-available/nginx.local /etc/nginx/sites-enabled/
 ```
 ## Menambah memori hash pada nginx
 Untuk menghindari kemungkinan masalah memori hash bucket yang muncul ketika penambahan nama server tambahan, kita perlu menyesuaikan nilai dalam file `/etc/nginx/nginx.conf`.
@@ -84,6 +81,11 @@ http {
 ```
 sudo nginx -t
 ```
+Jika file konfigurasi sesuai, maka akan muncul pesan berhasil seperti berikut:
+
+> nginx: the configuration file /etc/nginx/nginx.conf syntax is ok  
+> nginx: configuration file /etc/nginx/nginx.conf test is successful
+
 ## Restart service nginx
 ```
 sudo systemctl restart nginx
