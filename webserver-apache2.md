@@ -11,6 +11,16 @@ sudo systemctl status apache2
 hostname -I
 ```
 ## Manajemen Proses Apache
+* perintah dijalankan ketika menggunakan WSL
+```
+sudo service apache2 stop
+sudo service apache2 start 
+sudo service apache2 restart 
+sudo service apache2 reload 
+sudo service apache2 disable 
+sudo service apache2 enable
+```
+* perintah dijalankan ketika menggunakan VirtualBox
 ```
 sudo systemctl stop apache2
 sudo systemctl start apache2
