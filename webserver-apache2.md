@@ -6,7 +6,7 @@ sudo apt install apache2
 ```
 ## Periksa Pengaturan Web Server
 ```
-sudo systemctl status apache2
+sudo service apache2 status
 
 hostname -I
 ```
