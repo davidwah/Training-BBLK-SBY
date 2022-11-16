@@ -6,7 +6,7 @@ sudo apt install nginx
 ```
 ## Periksa Status Server
 ```
-systemctl status nginx
+sudo service nginx status
 
 hostname -I
 ```
