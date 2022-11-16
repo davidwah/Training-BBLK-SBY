@@ -102,3 +102,6 @@ sudo systemctl restart nginx
 ```
 ## Akses pada browser
 > Setelah langkah-langkah diatas dijalankan coba periksa pada browser.
+
+### Referesnsi
+https://www.digitalocean.com/community/tutorials/php-fpm-nginx
