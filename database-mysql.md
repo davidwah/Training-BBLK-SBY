@@ -5,7 +5,10 @@ sudo apt install mysql-server-8.0 mysql-client
 ```
 * Masuk pada mysql
 ```
+sudo mysql -u root -p
+
 mysql -h <127.0.0.1> -u <user> -p
+
 ```
 * Melihat user terdaftar. `harus masuk sebagai user root agar bisa melihat semua user`
 ```sql
