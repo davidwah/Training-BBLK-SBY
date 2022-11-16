@@ -1,7 +1,7 @@
 # MySQL
 * Install mysql
 ```
-sudo apt install mysql-server-8.0
+sudo apt install mysql-server-8.0 mysql-client
 ```
 * Masuk pada mysql
 ```
