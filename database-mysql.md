@@ -106,3 +106,6 @@ UPDATE barang SET deskripsi = 'Kecap hitam manis' WHERE nama = 'Kecap ABC';
 ```sql
 DELETE FROM barang WHERE nama = 'Kecap ABC';
 ```
+---
+https://www.techonthenet.com/mysql/grant_revoke.php
+
