@@ -11,6 +11,16 @@ systemctl status nginx
 hostname -I
 ```
 ## Manajemen proses Nginx
+* Menggunakan WSL
+```
+sudo service apache2 stop
+sudo service apache2 start 
+sudo service apache2 restart 
+sudo service apache2 reload 
+sudo service apache2 disable 
+sudo service apache2 enable
+```
+* Menggunakan VBox
 ```
 sudo systemctl stop nginx
 sudo systemctl start nginx
