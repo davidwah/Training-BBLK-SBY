@@ -6,9 +6,21 @@ sudo apt install mysql-server-8.0 mysql-client
 * Masuk pada mysql
 ```
 sudo mysql -u root -p
-
-mysql -h <127.0.0.1> -u <user> -p
-
+```
+* Remote mysql
+```
+mysql -h <127.0.0.1> -u <user-mysql> -p
+```
+* Mengatasi koneksi error  
+Ada kondisi kita mengalami error ketika akan mengakses mysql secara remote. Hal ini dikarenakan konfigurasi default mysql tidak mengijinkan mysql diakses secara remote.
+> ERROR 2002 (HY000): Can't connect to local MySQL server through socket '/var/run/mysqld/mysqld.sock' (2)
+Cara mengatasinya ubah file konfigurasi mysql `sudo nano /etc/mysql/mysql.conf.d/mysqld.cnf`, lalu ubah baris `bind-address`
+```
+bind-address           = 127.0.0.1
+```
+ubah jadi berikut:
+```
+bind-address           = 0.0.0.0
 ```
 * Melihat user terdaftar. `harus masuk sebagai user root agar bisa melihat semua user`
 ```sql
@@ -26,9 +38,14 @@ create database belajar_database;
 ```sql
 CREATE USER 'user1'@'%' IDENTIFIED WITH mysql_native_password BY 'rahasia';
 ```
-* Mengatur database dapat diakses oleh `user1`
+* Memberikan akses salah satu database pada `user1`
 ```sql
 GRANT ALL ON belajar-database.* TO 'user1'@'%';
+FLUSH PRIVILEGES;
+```
+* Memberikan akses kesemua database pada `user1`
+```sql
+GRANT ALL ON *.* TO 'user1'@'%';
 FLUSH PRIVILEGES;
 ```
 * Membuat database barang
