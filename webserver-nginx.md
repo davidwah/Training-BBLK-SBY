@@ -103,5 +103,46 @@ sudo systemctl restart nginx
 ## Akses pada browser
 > Setelah langkah-langkah diatas dijalankan coba periksa pada browser.
 
+
+---
+# Install dan konfigurasi SSL di Nginx
+## Install paket dan depedensi
+* Install mkcert
+```
+sudo apt-get install libnss3-tools
+
+sudo apt install mkcert
+
+mkcert -install
+```
+* Membuat certificate untuk localhost
+```
+mkcert localhost
+```
+## Konfigurasi HTTPS di Nginx
+* Pindahkan file certificate dan key ke direktory `/etc/ssl/`
+```
+sudo mv localhost.pem /etc/ssl/certs
+sudo mv localhost-key.pem /etc/ssl/private
+```
+* Mengatur konfigurasi SSL
+```
+sudo nano /etc/nginx/sites-available/default
+```
+Cari baris  `# SSL configuration` dan sesuaikan seperti berikut
+```
+# SSL configuration
+#
+listen 443 ssl default_server;
+listen [::]:443 ssl default_server;
+ssl_certificate /etc/ssl/certs/localhost.pem;
+ssl_certificate_key /etc/ssl/private/localhost-key.pem;
+```
+* Restart service nginx
+```
+sudo systemctl restart nginx
+sudo systemctl status nginx
+```
+ 
 ### Referesnsi
 https://www.digitalocean.com/community/tutorials/php-fpm-nginx
