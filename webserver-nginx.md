@@ -131,6 +131,7 @@ sudo nano /etc/nginx/sites-available/default
 ```
 Cari baris  `# SSL configuration` dan sesuaikan seperti berikut
 ```
+edit file hosts: `c:\windows\system32\drivers\etc\`
 # SSL configuration
 #
 listen 443 ssl default_server;
