@@ -82,15 +82,15 @@ sudo systemctl restart apache2
 
 ## Catatan
 
-- File konfigurasi Apache berada di direktori /etc/apache2.  
-- file konfigurasi utama Apache adalah /etc/apache2/apache2.conf.
-- Port yang akan didengarkan Apache ditentukan dalam file /etc/apache2/ports.conf
-- File-file Apache Virtual Hosts berada di direktori /etc/apache2/sites-available. File-file konfigurasi yang ditemukan dalam direktori ini tidak digunakan oleh Apache kecuali mereka ditautkan ke direktori /etc/apache2/sites-enabled.
-- Kita dapat mengaktifkan direktif virtual host dengan membuat symlink menggunakan perintah a2ensitedari file konfigurasi yang ditemukan di direktori sites-available ke direktori sites-enabled. Untuk menonaktifkan virtual host gunakan perintah a2dissite.
-- Sangat disarankan untuk mengikuti konvensi penamaan standar, misalnya jika nama domain situs ini adalah linuxid.net, maka file konfigurasi domain dinamai /etc/apache2/sites-available/linuxid.net.conf untuk memudahkan manajemen situs.
-- File konfigurasi yang digunakan untuk memuat berbagai modul Apache terdapat di direktori /etc/apache2/mods-available. Konfigurasi dalam direktori mod-available dapat diaktifkan dengan membuat symlink ke direktori /etc/apache2/mods-availablemenggunakan perintah a2enconf dan dinonaktifkan dengan perintah a2disconf.
-- File yang mengandung fragmen konfigurasi global disimpan di direktori /etc/apache2/conf-available. File dalam direktori conf-available dapat diaktifkan dengan membuat symlink ke/etc/apache2/conf-enabled menggunakan perintah a2enconf dan dinonaktifkan dengan perintah a2disconf.
-- File log Apache (access.log dan error.log) terletak di direktori /var/log/apache. Disarankan untuk menggunakan file access dan error log yang berbeda untuk setiap virtual host .
+- File konfigurasi Apache berada di direktori `/etc/apache2`.  
+- file konfigurasi utama Apache adalah `/etc/apache2/apache2.conf`.
+- Port yang akan didengarkan Apache ditentukan dalam file `/etc/apache2/ports.conf`
+- File-file Apache Virtual Hosts berada di direktori `/etc/apache2/sites-available`. File-file konfigurasi yang ditemukan dalam direktori ini tidak digunakan oleh Apache kecuali mereka ditautkan ke direktori `/etc/apache2/sites-enabled`.
+- Kita dapat mengaktifkan direktori virtual host dengan membuat symlink menggunakan perintah `a2ensite` dari file konfigurasi yang ditemukan di direktori sites-available ke direktori `sites-enabled`. Untuk menonaktifkan virtual host gunakan perintah `a2dissite`.
+- Sangat disarankan untuk mengikuti penamaan standar, misalnya jika nama domain situs ini adalah `bblk.net`, maka file konfigurasi domain dinamakan `/etc/apache2/sites-available/bblk.net.conf` untuk memudahkan manajemen situs.
+- File konfigurasi yang digunakan untuk memuat berbagai modul Apache terdapat di direktori `/etc/apache2/mods-available`. Konfigurasi dalam direktori `mod-available` dapat diaktifkan dengan membuat symlink ke direktori `/etc/apache2/mods-available` menggunakan perintah `a2enconf` dan dinonaktifkan dengan perintah `a2disconf`.
+- File konfigurasi global disimpan di direktori `/etc/apache2/conf-available`. File dalam direktori `conf-available` dapat diaktifkan dengan membuat symlink ke `/etc/apache2/conf-enabled` menggunakan perintah `a2enconf` dan dinonaktifkan dengan perintah `a2disconf`.
+- File log Apache (access.log dan error.log) terletak di direktori `/var/log/apache`. Disarankan untuk menggunakan file access dan error log yang berbeda untuk setiap virtual host.
 - Kita dapat mengatur direktori root dokumen domain Kita ke lokasi yang Kita inginkan. Lokasi yang paling umum untuk webroot meliputi:
     - `/home/<user_name>/<site_name>`
     - `/var/www/<site_name>`
