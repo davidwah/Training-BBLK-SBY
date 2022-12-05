@@ -123,6 +123,36 @@ UPDATE barang SET deskripsi = 'Kecap hitam manis' WHERE nama = 'Kecap ABC';
 ```sql
 DELETE FROM barang WHERE nama = 'Kecap ABC';
 ```
+## Mengubah Time Zone Datbase
+Secara default time-zone pada database yang diinstal akan mengikuti system time-zone yaitu UTC. 
+* Untuk melihat zona waktu yang digunakan bsia dengan menjalankan perintah berikut:
+```sql
+SELECT @@time_zone;
+```
+![img-timezone]()  
+
+* Untuk melihat nama zona waktu bisa menjalankan perintah berikut:
+```sql
+SELECT name FROM mysql.time_zone_name;
+```
+![img-timezone-2]()  
+
+* Lalu untuk mengatur zona waktu menjadi `Asia/Jakarta` dengan menjalankan perintah berikut:
+```sql
+SET GLOBAL time_zone='Asia/Jakarta';
+```
+![img-timezone-3]()  
+
+* Setelah itu coba perikasa kembali apakah zona waktu sudah terganti, dengan menjalankan perintah berikut: 
+```sql
+SELECT @@time_zone;
+```
+![img-timezone-4]()  
+
+> Jika zona waktu belum berganti menjadi `Asia/Jakarta` coba keluar dan login kembali pada user database dan jalankan kembali perintah `SELECT @@time_zone;`
+
+
+
 ---
 https://www.techonthenet.com/mysql/grant_revoke.php
 
