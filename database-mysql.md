@@ -129,25 +129,25 @@ Secara default time-zone pada database yang diinstal akan mengikuti system time-
 ```sql
 SELECT @@time_zone;
 ```
-![img-timezone]()  
+![img-timezone](file/img-database/Screenshot-db-1.png)  
 
 * Untuk melihat nama zona waktu bisa menjalankan perintah berikut:
 ```sql
 SELECT name FROM mysql.time_zone_name;
 ```
-![img-timezone-2]()  
+![img-timezone-2](file/img-database/Screenshot-db-2.png)  
 
 * Lalu untuk mengatur zona waktu menjadi `Asia/Jakarta` dengan menjalankan perintah berikut:
 ```sql
 SET GLOBAL time_zone='Asia/Jakarta';
 ```
-![img-timezone-3]()  
+![img-timezone-3](file/img-database/Screenshot-db-3.png)  
 
 * Setelah itu coba perikasa kembali apakah zona waktu sudah terganti, dengan menjalankan perintah berikut: 
 ```sql
 SELECT @@time_zone;
 ```
-![img-timezone-4]()  
+![img-timezone-4](file/img-database/Screenshot-db-4.png)  
 
 > Jika zona waktu belum berganti menjadi `Asia/Jakarta` coba keluar dan login kembali pada user database dan jalankan kembali perintah `SELECT @@time_zone;`
 
