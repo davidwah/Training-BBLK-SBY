@@ -36,7 +36,7 @@ create database belajar_database;
 ```
 * Membuat user
 ```sql
-CREATE USER 'user1'@'%' IDENTIFIED WITH mysql_native_password BY 'rahasia';
+CREATE USER 'user1'@'%' IDENTIFIED BY 'rahasia';
 ```
 * Memberikan akses salah satu database pada `user1`
 ```sql
